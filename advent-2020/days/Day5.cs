@@ -32,9 +32,7 @@ namespace advent2020
             {
                 List<int> columns = new List<int>();
                 for (int column = 0; column < 8; column++)
-                {
                     columns.Add(column);
-                }
 
                 planeMap[row] = columns;
             }
@@ -49,9 +47,8 @@ namespace advent2020
 
                 // If every seat on this row has been found and removed, also remove the row 
                 if (planeMap[row].Count == 0)
-                {
                     planeMap.Remove(row);
-                }
+
             }
 
             // Every row in the plane map should now have all 8 seats in it, or just 1. Find the row with only one seat, that's our seat
