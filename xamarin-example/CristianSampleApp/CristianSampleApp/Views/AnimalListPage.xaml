@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CristianSampleApp.Views.AnimalListPage"
+             Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid x:Name="GridVertical"
+                  Margin="10"
+                  ColumnSpacing="15"
+                  RowSpacing="15">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <SearchBar x:Name="AnimalSearchBar"
+                           Placeholder="Search for animals by name"
+                           TextChanged="AnimalSearchBar_TextChanged" />
+
+                <Picker x:Name="AnimalStatusPicker"
+                        SelectedIndexChanged="AnimalStatusPicker_SelectedIndexChanged"
+                        Title="Filter animals" />
+            </Grid>
+
+            <Grid x:Name="GridHorizontal"
+                  HorizontalOptions="FillAndExpand"
+                  Margin="10"
+                  ColumnSpacing="15"
+                  RowSpacing="15">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+            <ListView x:Name="AnimalList"
+                      ItemsSource="{Binding CurrentAnimals}"
+                      IsPullToRefreshEnabled="True"
+                      Refreshing="AnimalList_Refreshing"
+                      IsRefreshing="{Binding AnimalListIsRefreshing}"
+                      CachingStrategy="RecycleElement"
+                      ItemSelected="AnimalList_ItemSelected"
+                      SelectionMode="Single"
+                      VerticalOptions="FillAndExpand">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" TextColor="{Binding Color}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
