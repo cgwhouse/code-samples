@@ -2,3 +2,4 @@ sqltools*.log
 
 bin
 obj
+.vs
