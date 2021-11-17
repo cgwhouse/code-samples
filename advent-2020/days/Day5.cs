@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 
+// See here: https://adventofcode.com/2020/day/5
 namespace advent2020
 {
     public class Day5 : BaseDay
